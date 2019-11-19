@@ -1,0 +1,204 @@
+---
+name: Amelia E. 
+surname: Barber
+#position: "Postdoctoral Fellow"
+#address: "Leibniz HKI - Jena"
+phone: +49 0162 390 5970
+www: www.barber.science
+email: "amelia.barber@gmail.com"
+twitter: "frau_dr_barber"
+github: ameliabedelia
+# linkedin: barberae
+date: "`r format(Sys.time(), '%B %Y')`"
+headcolor: 009999
+output: 
+  vitae::moderncv:
+    theme: classic
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tidyverse)
+library(lubridate)
+library(glue)
+library(here)
+```
+
+<!-- # tl;dr -->
+
+<!--  * Postdoctoral fellow with wet lab and computational biology experience -->
+<!--  * Interested in fungal biology and what makes a pathogen a pathogen -->
+
+# Education
+
+```{r edu}
+
+edu <- read_csv2(here("data", "edu.csv")) %>% 
+  fill(everything())
+  
+detailed_entries(edu,
+                 when = date,
+                 what = degree,
+                 where = location,
+                 with = university,
+                 why = why,
+                 .protect = FALSE)
+# tribble(
+#   ~ Degree, ~ Year, ~ Institution, ~ Where,
+#   "PhD", "2016", "University of Utah", "Salt Lake City, UT", 
+#   "BS", "2006", "University of Wisconsin-Madison", "Madison, WI",
+# ) %>% 
+#   detailed_entries(Degree, Year, Institution, Where)
+```
+
+# Experience
+
+```{r experience}
+experience <- read_csv2(here("data", "experience.csv")) %>%
+  fill(what, with, when) %>% 
+  mutate(what = str_to_title(what)) %>% 
+  filter(with != "F1000 Prime")
+
+detailed_entries(experience,
+    what = what,
+    when = when,
+    where = where,
+    with = with,
+    why = why,
+    .protect = FALSE
+  )
+
+```
+
+\pagebreak
+
+# Research Support & Awards
+
+```{r}
+support <- read_csv2(here("data", "research_support.csv"), col_types = "ccccc")
+awards <- read_csv2(here("data", "awards.csv"), col_types = "ccccc")
+
+support_awards <- bind_rows(support, awards) %>% 
+  arrange(desc(when))
+
+brief_entries(support_awards,
+    when = when,
+    what = what,
+    .protect = FALSE
+  )
+```
+
+# Publications
+
+```{r}
+#pubs <- scholar::get_publications("COgbwJ4AAAAJ") 
+
+publications <- read_csv2(here("data", "publications_2.csv"))
+
+publications %>%
+  filter(!is.na(cid)) %>%
+  arrange(desc(year)) %>%
+  detailed_entries(
+    what = title,
+    when = year,
+    with = author,
+    where = journal,
+    .protect = FALSE
+  )
+# scholar::get_publications("COgbwJ4AAAAJ") %>%
+#   #filter(cites > 30) %>%
+#   distinct(title, .keep_all = TRUE) %>%
+#   transmute(bibtype = "Article", author = as.character(author),
+#             title = as.character(title),
+#             journaltitle = as.character(journal), year, key = row_number()) %>%
+#   RefManageR::as.BibEntry() %>%
+#   RefManageR::WriteBib("barber.bib")
+
+#bibliography_entries("~/Documents/R/cv/data/barber.bib") %>% 
+#   arrange(desc(year))
+
+```
+
+# Presentations
+
+```{r}
+
+presentations <- read_csv2(here("data", "presentations.csv")) %>%
+    mutate(when = dmy(when),
+         year = year(when),
+         what = str_c(what_plain, where, sep = ". ")) %>%
+    arrange(desc(year))
+
+brief_entries(presentations,
+              what = what,
+              when = year,
+              #where = where,
+              with = combine,
+              .protect = FALSE)
+```
+
+# Supervisory Experience
+
+```{r}
+supervisory <- read_csv2(here("data", "supervisory.csv")) %>% 
+  arrange(desc(when)) %>% 
+  filter(name != "Antje Häder")
+
+brief_entries(supervisory,
+              what = name,
+              when = when,
+              with = position)
+```
+
+# Academic Teaching Experience
+
+```{r}
+teaching <- supervisory <- read_csv2(here("data", "teaching.csv"))
+
+brief_entries(supervisory,
+              what = what,
+              when = when,
+              with = where)
+```
+
+# Institutional Service
+
+```{r}
+service <- read_csv2(here("data", "service.csv"))
+
+brief_entries(service,
+              what = what,
+              when = when,
+              with = with)
+```
+
+# Outreach
+
+```{r}
+outreach <- read_csv2(here("data", "outreach.csv"))
+
+brief_entries(outreach,
+              what = what,
+              when = when)
+```
+
+\pagebreak
+
+# References
+
+**Oliver Kurzai**, postdoctoral advisor  
+Chair, Institute for Hygiene and Microbiology, University of Würzburg, Würzburg, Germany  
+Group Leader, Leibniz Institute for Natural Product Research and Infection Biology – Hans Knöll Institute, 
+Jena, Germany  
+okurzai@hygiene.uni-wuerzburg.de // +49 931 31-88007
+
+\bigskip
+
+**Matthew Mulvey**, doctoral advisor  
+Professor, Department of Pathology  
+University of Utah, Salt Lake City, UT, USA  
+mulvey@path.utah.edu // +1 (801) 581-5967
+
+
+
