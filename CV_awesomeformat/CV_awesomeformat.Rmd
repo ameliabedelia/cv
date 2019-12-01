@@ -1,0 +1,104 @@
+---
+name: Amelia E. 
+surname: Barber
+#position: "Postdoctoral Fellow"
+#address: "Leibniz HKI - Jena"
+phone: +49 0162 390 5970
+www: www.barber.science
+email: "amelia.barber@gmail.com"
+twitter: frau_dr_barber
+github: ameliabedelia
+# linkedin: barberae
+date: "`r format(Sys.time(), '%B %Y')`"
+output: vitae::awesomecv
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tidyverse)
+library(lubridate)
+library(glue)
+```
+
+# tl;dr
+
+ * Postdoctoral fellow with wet lab and computational biology experience
+ * Interested in fungal biology and what makes a pathogen a pathogen
+
+# Education
+
+```{r edu}
+edu <- read_csv2("~/Documents/R/cv/data/edu.csv") %>% 
+  mutate(pi = if_else(!is.na(pi), glue("PI: {pi}"), as.character(NA)),
+         dissertation = glue("\\textbf{[dissertation]}", .open = "[", .close = "]")) %>% 
+  gather(dissertation, pi, key = "whytype", value = "why")
+
+detailed_entries(edu,
+                 when = date,
+                 what = degree,
+                 where = location,
+                 with = university,
+                 why = why,
+                 .protect = FALSE)
+# tribble(
+#   ~ Degree, ~ Year, ~ Institution, ~ Where,
+#   "PhD", "2016", "University of Utah", "Salt Lake City, UT", 
+#   "BS", "2006", "University of Wisconsin-Madison", "Madison, WI",
+# ) %>% 
+#   detailed_entries(Degree, Year, Institution, Where)
+```
+
+# Experience
+
+```{r experience}
+experience <- read_csv2("~/Documents/R/cv/data/experience.csv") %>%
+  fill(what, with, where, when)
+
+detailed_entries(experience,
+    what = what,
+    when = when,
+    where = where,
+    with = with,
+    why = why,
+    .protect = FALSE
+  )
+
+# tribble(
+#   ~Year, ~Type, ~Desc,
+#   1903, "Physics", "Awarded for her work on radioactivity with Pierre Curie and Henri Becquerel",
+#   1911, "Chemistry", "Awarded for the discovery of radium and polonium"
+# ) %>% 
+#   brief_entries(
+#     glue::glue("Nobel Prize in {Type}"),
+#     Year, 
+#     Desc
+#   )
+```
+
+# Publications
+
+```{r}
+# pubs <- scholar::get_publications("COgbwJ4AAAAJ") 
+#   
+# pubs %>% 
+#   filter(!is.na(cid)) %>% 
+#   arrange(desc(year)) %>%
+#   detailed_entries(
+#     what = title,
+#     when = year,
+#     with = author,
+#     where = journal
+#   )
+# scholar::get_publications("COgbwJ4AAAAJ") %>%
+#   #filter(cites > 30) %>%
+#   distinct(title, .keep_all = TRUE) %>%
+#   transmute(bibtype = "Article", author = as.character(author),
+#             title = as.character(title),
+#             journaltitle = as.character(journal), year, key = row_number()) %>%
+#   RefManageR::as.BibEntry() %>%
+#   RefManageR::WriteBib("barber.bib")
+
+# bibliography_entries("barber.bib") 
+
+```

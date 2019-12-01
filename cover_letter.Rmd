@@ -1,0 +1,24 @@
+---
+title: ''
+author: ""
+date: "11/17/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\hfill Amelia Barber
+Breite Str. 3
+
+\hfill Amelia Barber
+
+\hfill Breite Str. 3
+
+\hfill 07749 Jena
+
+\hfill Germany
+
+Dear Sir or Madam,
+

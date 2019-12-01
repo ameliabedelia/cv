@@ -1,0 +1,33 @@
+---
+name: Amelia E. 
+surname: Barber
+#position: "Postdoctoral Fellow"
+address: "Breite Straße 3, 07749 Jena, Germany"
+phone: +49 0162 390 5970
+#www: www.barber.science
+email: "amelia.barber@gmail.com"
+#twitter: frau_dr_barber
+#github: ameliabedelia
+# linkedin: barberae
+date: "`r format(Sys.time(), '%B %d %Y')`"
+headcolor: 009999
+output: 
+  vitae::moderncv:
+    theme: classic
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+```
+
+Dr. Rhys A. Farrer   
+University of Exeter  
+
+\hfill `r format(Sys.time(), '%B %d, %Y')`  
+
+## 
+Dear Dr. Rhy Farrer,  
+
+I am writing
+
