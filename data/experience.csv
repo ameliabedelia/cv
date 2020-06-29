@@ -1,15 +1,16 @@
 ﻿when;what;where;with;why
-2020-present;Junior group leader;;Leibniz Institute for Natural Product Research and Infection Biology - Hans Knöll Institute;Investigating how environmental fungi evolved to cause human disease using experimental and computational approaches
-2016-2020;Postdoctoral fellow;Oliver Kurzai, PI;Leibniz Institute for Natural Product Research and Infection Biology - Hans Knöll Institute;Quantified the impact of azole fungicide use in agriculture on the ecology and resistance status of \emph{Aspergillus fumigatus} in a three year field study
-;;Oliver Kurzai, PI;;Population and comparative genomics of $\approx$ 275 clinical and environmental \emph{Aspergillus fumigatus}  isolates
-;;Oliver Kurzai, PI;;NGS-based surveillance of \emph{Candida auris} isolates submitted to the National Reference Center for Invasive Fungal Infection in Germany 
-2009-2016;Graduate research assistant;Matthew Mulvey, PI;University of Utah;Characterized the host response to genetically distinct pathogenic \emph{Escherichia coli} strains
-;;Matthew Mulvey, PI;;Determined contributions of bacterial flagellin and TLR5 signalilng to host response during sepsis
-;;Matthew Mulvey, PI;;Established and validated zebrafish model of sepsis by comparing clinical symptoms of human sepsis patients to pathologies seen in infected zebrafish embryos
-;;Matthew Mulvey, PI;;Created transgenic zebrafish lines putting IL-1$\beta$ and IL-10 under inducible control and knocking out IL-10
-2013-2016;Associate faculty member; ;F1000 Prime;Composed recommendations on recent scientific literature in the fields of cellular microbiology and pathogenesis
-;;;;Check contents of Science, Nature, Cell Host \& Microbe, and PLoS Pathogens to identify quality research for evaluation on F1000 Prime.
-2007-2009;Research specialist;Clive Svendsen, PI;University of Wisconsin-Madison;Examined the neuroprotective and neuroregenerative effects of neural progenitor cell transplants expressing GDNF, IGF-1, and VEGF in animal models of neurodegenerative disease
-;;Clive Svendsen, PI;;Characterized five patient-derived Huntingtons Disease iPS cell lines and established a differentiation protocol for making DARPP-32 positive striatal neurons from iPS cells
-2005-2007;Undergraduate researcher;Ken Raffa, PI;University of Wisconsin-Madison;Defined the gut microbiome of the Emerald Ash Borer and the Southern Pine Beetle
-2004-2005;Undergraduate researcher;Barbara St. Pierre Schneider, PI;University of Wisconsin-Madison;Investigated the effects of effects of estrogen and progesterone on exercise-induced muscle injury
+2020-present;Junior group leader;Jena, Germany;Leibniz Institute for Natural Product Research and Infection Biology - Hans Knöll Institute;Investigating how environmental fungi evolved to cause human disease using experimental and computational approaches
+2016-2020;Postdoctoral fellow;Jena, Germany;Leibniz Institute for Natural Product Research and Infection Biology - Hans Knöll Institute;Quantified the impact of azole fungicide use in agriculture on the ecology and resistance status of \emph{Aspergillus fumigatus} in a three year field study
+;;;;Population and comparative genomics of $\approx$ 250 clinical and environmental \emph{Aspergillus fumigatus}  isolates
+;;;;NGS-based surveillance of \emph{Candida auris} in Germany in collaboration with  the National Reference Center for Invasive Fungal Infection (NRZMyk)
+;;;;Research group of Oliver Kurzai
+2009-2016;Graduate research assistant;Salt Lake City, UT;University of Utah;Characterizing how the vast genetic diversity in pathogenic \emph{Escherichia coli} strains impacts host response and disease progression during sepsis
+;;;;"Defining the specific contributions of bacterial flagellin and TLR5 signalilng to host response during sepsis
+during sepsis"
+;;;;Research group of Matthew Mulvey
+2007-2009;Associate research specialist;Madison, WI;University of Wisconsin-Madison;Examined the neuroprotective and neuroregenerative effects of neural progenitor cell transplants expressing GDNF, IGF-1, and VEGF in animal models of neurodegenerative disease
+;;;;Research group of Clive Swendsen
+2005-2007;Undergraduate researcher;Madison, WI;University of Wisconsin-Madison;Defined the gut microbiome of the Emerald Ash Borer and the Southern Pine Beetle
+;;;;Research group of Ken Raffa
+2004-2005;Undergraduate researcher;Madison, WI;University of Wisconsin-Madison;Investigated the effects of effects of estrogen and progesterone on exercise-induced muscle injury
+;;;;Research group of Barbara St. Pierre Schneider
