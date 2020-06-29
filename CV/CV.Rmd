@@ -68,16 +68,14 @@ detailed_entries(experience,
     why = why,
     .protect = FALSE
   )
-
 ```
-
-\pagebreak
 
 # Research Support & Awards
 
 ```{r}
 support <- read_csv2(here("data", "research_support.csv"), col_types = "ccccc")
-awards <- read_csv2(here("data", "awards.csv"), col_types = "ccccc")
+awards <- read_csv2(here("data", "awards.csv"), col_types = "ccccc") %>%
+  filter(include == TRUE)
 
 support_awards <- bind_rows(support, awards) %>% 
   arrange(desc(when))
@@ -94,11 +92,13 @@ brief_entries(support_awards,
 ```{r}
 #pubs <- scholar::get_publications("COgbwJ4AAAAJ") 
 
-publications <- read_csv2(here("data", "publications_2.csv"))
+publications <- read_csv2(here("data", "publications_2.csv")) %>% 
+  mutate(date = lubridate::dmy(date))
 
 publications %>%
-  filter(!is.na(cid)) %>%
-  arrange(desc(year)) %>%
+  filter(include == TRUE) %>%
+  arrange(desc(date)) %>%
+  mutate(year = year(date)) %>% 
   detailed_entries(
     what = title,
     when = year,
@@ -125,6 +125,7 @@ publications %>%
 ```{r}
 
 presentations <- read_csv2(here("data", "presentations.csv")) %>%
+  filter(include == TRUE) %>% 
     mutate(when = dmy(when),
          year = year(when),
          what = str_c(what_plain, where, sep = ". ")) %>%
@@ -143,7 +144,7 @@ brief_entries(presentations,
 ```{r}
 supervisory <- read_csv2(here("data", "supervisory.csv")) %>% 
   arrange(desc(when)) %>% 
-  filter(name != "Antje Häder")
+  filter(str_detect(name, "Antje|Tongta", negate = TRUE))
 
 brief_entries(supervisory,
               what = name,
@@ -173,6 +174,7 @@ brief_entries(service,
               with = with)
 ```
 
+
 # Outreach
 
 ```{r}
@@ -183,11 +185,18 @@ brief_entries(outreach,
               when = when)
 ```
 
-\pagebreak
 
 # References
 
-**Oliver Kurzai**, postdoctoral advisor  
+**Gianni Panagiotou**  
+Head, Systems Biology and Bioinformatics Unit  
+Leibniz Institute for Natural Product Research and Infection Biology – Hans Knöll Institute, 
+Jena, Germany  
+gianni.panagiotou@leibniz-hki.de // +49 3641 532-1759
+
+\bigskip
+
+**Oliver Kurzai**, postdoctoral advisor 
 Chair, Institute for Hygiene and Microbiology, University of Würzburg, Würzburg, Germany  
 Group Leader, Leibniz Institute for Natural Product Research and Infection Biology – Hans Knöll Institute, 
 Jena, Germany  

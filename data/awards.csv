@@ -1,5 +1,6 @@
-﻿when;what;where;with;why
-2018;International Society for Human and Animal Mycology Attendance Grant;;;
-2017;European Confederation of Medical Mycology Young Investigators Travel Award;;;
-2015;ASM Richard and Mary Finkelstein Travel Award;;;
-2015;University of Utah Graduate School Travel Award;;;
+﻿include;when;what;where;with;why
+TRUE;2018;International Society for Human and Animal Mycology Attendance Grant;;;
+TRUE;2017;European Confederation of Medical Mycology Young Investigators Travel Award;;;
+TRUE;2015;ASM Richard and Mary Finkelstein Travel Award;;;
+TRUE;2015;University of Utah Graduate School Travel Award;;;
+FALSE;2019;Dataquest Underrepresented Genders Scholarship;;;
